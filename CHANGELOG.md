@@ -14,6 +14,7 @@ Research-driven must-have features. See `docs/research.md`.
 - **Reporting** section: platform, impersonated organisation, visa-centre fraud page, national cybercrime/consumer body looked up in session (or marked verify), local police and own embassy when abroad.
 - **Already paid / shared** block in a fixed order, with a **recovery-scam warning** and passport-copy advice.
 - **Privacy guard**: pasted passport/ID/card numbers, passwords or codes are never repeated; the user is told not to share them.
+- **No unsourced caveats**: exceptions to an official rule only when the official page says so (found in blind evals, SC-8).
 - **Special requests**: declines to label named people as criminals and offers a neutral warning text instead; refuses fake documents and gives legitimate alternatives.
 - **Language and length**: answers in the user's language with the English verdict label in brackets; phone mode with the next action first, prose outside blocks of 8 lines or fewer, and at most 5 red-flag bullets.
 - `docs/research.md` (condensed research, competitor gaps, must-have mapping) and `tests/evals.md` (17 cases).

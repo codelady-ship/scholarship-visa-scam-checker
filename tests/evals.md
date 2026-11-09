@@ -3,7 +3,7 @@
 Manual test prompts for every must-have feature (see `docs/research.md`). Run each prompt in a fresh chat with the skill enabled and web access on. All senders, numbers and domains below are **fictional**. A case passes only if **every** expected behaviour is present.
 
 **Cross-cutting rules (apply to every case):**
-- **Format:** first line is one next action; a `VERDICT:` block with exactly one of `Likely legit` / `Suspicious` / `Likely scam` (translated label allowed if the English label is kept in brackets); red flags quote words from the input.
+- **Format:** first line is one next action; a `VERDICT:` block with exactly one of `Likely legit` / `Suspicious` / `Likely scam` (translated label allowed if the English label is kept in brackets); red flags quote words from the input. Exception: SC-10 has no message to check, so no VERDICT block is required there (a verdict about a person would itself be an accusation).
 - **Phone mode:** prose outside the VERDICT / ALREADY PAID blocks ≤ 8 lines, including the footer.
 - **Official source:** `What's normal` gives an official link opened in the session, or says it couldn't be opened. `Likely legit` never appears without an official link.
 - **Verification route:** never tells the user to verify via a phone/e-mail/link from the message itself.
