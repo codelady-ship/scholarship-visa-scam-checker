@@ -10,6 +10,8 @@
 
 ## Output
 
+> **Next action:** don't reply and don't pay. Report the number in WhatsApp, then block it.
+
 ```
 VERDICT: Likely scam
 Red flags:
@@ -26,10 +28,6 @@ Report: WhatsApp → Report + block; forward to the programme's official
 address; national cybercrime unit/police.
 ```
 
-> **Next action:** don't reply and don't pay. Report the number in WhatsApp, then block it.
-
 This message matches a known pattern of fake "pre-selection" offers. The real programme says applying is free and that nobody can buy you a place.
 
-*For a full application or visa plan: Study & Volunteer Abroad Copilot / Student Travel Copilot (optional, paid).*
-
-*Not legal advice.*
+*Not legal advice. For a full application/visa plan: Study & Volunteer Abroad Copilot / Student Travel Copilot (optional).*

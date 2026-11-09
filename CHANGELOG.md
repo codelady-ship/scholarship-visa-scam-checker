@@ -3,6 +3,27 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-11-09
+
+Research-driven must-have features. See `docs/research.md`.
+
+### Added
+- **Verdict rules**: when each of `Likely legit` / `Suspicious` / `Likely scam` applies; `Likely legit` requires an official page opened in the session on the official domain; official pages pasted by the user are recognised as legit, without invented doubt; no web access means no `Likely legit`.
+- **Domain check** method (registrable domain vs the one the embassy or programme links to; extra words, typos, other endings, brand in a subdomain, free mailboxes).
+- **Red flags quote the triggering words**; expanded catalogue: slot sellers, visa-portal password requests, "complete packages", job-abroad fees with an explicit **trafficking warning**, ESC placement fees, data harvesting.
+- **Reporting** section: platform, impersonated organisation, visa-centre fraud page, national cybercrime/consumer body looked up in session (or marked verify), local police and own embassy when abroad.
+- **Already paid / shared** block in a fixed order, with a **recovery-scam warning** and passport-copy advice.
+- **Privacy guard**: pasted passport/ID/card numbers, passwords or codes are never repeated; the user is told not to share them.
+- **No unsourced caveats**: exceptions to an official rule only when the official page says so (found in blind evals, SC-8).
+- **Special requests**: declines to label named people as criminals and offers a neutral warning text instead; refuses fake documents and gives legitimate alternatives.
+- **Language and length**: answers in the user's language with the English verdict label in brackets; phone mode with the next action first, prose outside blocks of 8 lines or fewer, and at most 5 red-flag bullets.
+- `docs/research.md` (condensed research, competitor gaps, must-have mapping) and `tests/evals.md` (17 cases).
+
+### Changed
+- Footer is a single line combining "not legal advice" and the optional related skills.
+- Examples updated to the v1.1.0 output format (next action first).
+- `README.md`: v1.1.0 features.
+
 ## [1.0.0] - 2026-11-09
 
 ### Added

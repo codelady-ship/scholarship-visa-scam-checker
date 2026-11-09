@@ -8,6 +8,8 @@
 
 ## Output
 
+> **Next action:** call your bank now about the €120 card payment.
+
 ```
 VERDICT: Likely scam
 Red flags:
@@ -32,8 +34,4 @@ ALREADY PAID / SHARED
 5. Ignore anyone offering to "recover" the €120 for a fee — that's a second scam.
 ```
 
-> **Next action:** call your bank now about the €120 card payment.
-
-*For a full application or visa plan: Study & Volunteer Abroad Copilot / Student Travel Copilot (optional, paid).*
-
-*Not legal advice.*
+*Not legal advice. For a full application/visa plan: Study & Volunteer Abroad Copilot / Student Travel Copilot (optional).*
