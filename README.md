@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-D97757.svg)](SKILL.md)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](CHANGELOG.md)
 [![Price: Free](https://img.shields.io/badge/price-free-brightgreen.svg)](#pricing)
 
 > **Compatibility:** works best with web search on, so the skill can open the official programme, embassy or visa-centre page. Without browsing it still lists red flags, but it never gives a `Likely legit` verdict.
@@ -26,13 +26,16 @@ Generic scam checkers look at bank texts and parcel messages. This skill knows h
 ## Features
 
 - **Three-level verdict:** `Likely legit` (only with an official source opened in the session), `Suspicious`, or `Likely scam`.
-- **Red flags found:** fees for free things, guarantees, pressure, unofficial senders, payment method, lookalike domains, unverifiable letters, housing and job-abroad patterns.
+- **Red flags found, quoting the exact words** that triggered them: fees for free things, guarantees, pressure, unofficial senders, payment method, lookalike domains, unverifiable letters, housing and job-abroad patterns.
+- **Domain check:** compares the real registrable domain with the one the embassy or programme links to (extra words, typos, other endings, brand hidden in a subdomain, free mailboxes).
+- **Job-abroad and volunteer checks**, including an explicit warning when a fake job offer looks like trafficking into scam centres.
 - **What's normal:** what the real programme, university, embassy or visa centre does and charges, with the official link.
 - **Safe next steps** that verify through contacts on the official website, never through the message.
 - **How to report:** platform, impersonated organisation, visa-centre fraud page, national cybercrime or consumer body.
-- **Already paid?** An ordered recovery plan: bank or payment provider, evidence, report, passwords.
+- **Already paid?** An ordered recovery plan: bank or payment provider, evidence, report, passwords, plus a warning about "recovery" scammers who target victims a second time.
 - **Templates:** verification e-mail to an official office, report checklist, already-paid recovery checklist.
-- **Answers in your language**, short enough for a phone.
+- **Privacy guard:** if you paste a passport number, card number or password, it tells you not to share it and never repeats it.
+- **Answers in your language** (Azerbaijani, Turkish, Russian, Uzbek, Urdu, Arabic, English…). Phone mode by default: next action first, the verdict block, and no more than 8 lines of text.
 
 ## What it never does
 
@@ -101,6 +104,8 @@ Report: WhatsApp → Report + block; national cybercrime unit/police.
 ```
 
 Full worked cases are in [`examples/`](examples/). Reusable templates are in [`templates/`](templates/).
+
+Research behind the features: [`docs/research.md`](docs/research.md). Test prompts and expected behaviour: [`tests/evals.md`](tests/evals.md).
 
 ## How it works
 
