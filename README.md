@@ -28,6 +28,7 @@ Generic scam checkers look at bank texts and parcel messages. This skill knows h
 - **Three-level verdict:** `Likely legit` (only with an official source opened in the session), `Suspicious`, or `Likely scam`.
 - **Red flags found, quoting the exact words** that triggered them: fees for free things, guarantees, pressure, unofficial senders, payment method, lookalike domains, unverifiable letters, housing and job-abroad patterns.
 - **Domain check:** compares the real registrable domain with the one the embassy or programme links to (extra words, typos, other endings, brand hidden in a subdomain, free mailboxes).
+- **Domain age** (one signal, never a verdict alone): creation date from a connected WHOIS/RDAP tool or the public RDAP record; without either, a 2-step lookup.icann.org check for you. A brand-new domain claiming to be an embassy, visa centre or scholarship body is a strong flag. Ages are never guessed.
 - **Job-abroad and volunteer checks**, including an explicit warning when a fake job offer looks like trafficking into scam centres.
 - **What's normal:** what the real programme, university, embassy or visa centre does and charges, with the official link.
 - **Safe next steps** that verify through contacts on the official website, never through the message.
