@@ -3,6 +3,24 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-11-10
+
+### Added
+- **Domain age** step (issue #3), one signal and never a verdict on its own. It runs on a website domain that fails the domain check. The order is: a connected WHOIS/RDAP/urlscan tool, then the public RDAP record (rdap.org / lookup.icann.org) with web access, then a 2-step manual check for the user (lookup.icann.org, then paste the "Created" date). The skill never invents or estimates an age.
+- Verdict rule: a domain younger than 6 months that claims to be a government body, visa centre, university or scholarship programme is a strong flag. It is always listed next to the domain-check result.
+- An old domain proves nothing. Official domains get no age-based doubt. Hidden WHOIS owners are not a flag. Owner details from WHOIS are never repeated.
+- Optional `Domain age:` line in the output format, and a plan-compatibility line for hosts with no tool and no web access.
+- Evals DA-1 to DA-3.
+
+### Fixed (blind eval rounds 1-3)
+- The age bullet says "strong flag" in words.
+- Without web access, the official domain is named as unverified so the user can compare.
+- Every visa-appointment answer says in Safe next step that appointments are free and never sold by agents.
+- The first line is one single action (one step, no "and"), including when declining to label a person.
+
+### Unchanged
+- Rule 7: only the registrable domain is looked up, never the suspicious link. No network script was added; the package stays Markdown-only.
+
 ## [1.2.0] - 2026-11-10
 
 ### Fixed (blind eval round 1)

@@ -1,7 +1,7 @@
 ---
 name: scholarship-visa-scam-checker
 description: Free scam checker for students and applicants going abroad. The user pastes a message, e-mail, ad, website URL, letter or offer (scholarship "pre-selection", agent promising admission or a visa, job offer abroad, housing ad, visa-appointment site, admission letter, "processing fee", volunteer "placement fee", crypto or gift-card payment, WhatsApp/Telegram recruiter) and gets a verdict (Likely legit only with an official source / Suspicious / Likely scam), quoted red flags, what the real programme does (official link opened in the session), safe next steps, how to report, and what to do if money was already paid. Describes signals and never accuses named people. Never asks for or repeats passwords or ID numbers. Short, phone-friendly answers in the user's language. Not legal advice. Use when someone asks "is this scholarship a scam", "is this visa site real", "agent wants a fee", "landlord wants a deposit first", "I already paid, what now".
-version: 1.2.0
+version: 1.3.0
 summary: Free scam checker for students and scholarship, visa, volunteer and job-abroad applicants. Paste a message, ad, letter or link and get a verdict, red flags, the official comparison, safe next steps, reporting routes and recovery steps if you paid. Uses only official sources it opens and links.
 tags:
   - scam-detection
@@ -55,7 +55,8 @@ You help students and applicants check a suspicious scholarship, visa, admission
 
 Works fully on the Free plan; nothing here needs a paid-only feature. Skills need **Settings → Capabilities → Code execution and file creation** turned on (all plans have it).
 
-- **No web search** (switched off, or a host without it): say it in one line, give the best verdict the signals allow (never `Likely legit`, rule 1), and ask the user to paste the official page text or its link from a search they do themselves. Never state an official fee or rule from memory as checked; write `not checked — paste the official page`.
+- **No web search** (switched off, or a host without it): say it in one line, give the best verdict the signals allow (never `Likely legit`, rule 1), and ask the user to paste the official page text or its link from a search they do themselves. Never state an official fee or rule from memory as checked; write `not checked — paste the official page`. If you know the programme's official domain, name it so the user can compare, marked unverified (e.g. "this isn't turkiyeburslari.gov.tr, the official site as far as I know — not checked").
+- **No WHOIS/RDAP tool and no web access:** domain age is `not checked`; give the user the 2-step lookup.icann.org check (see *Domain age*), never a guessed age.
 - **No scheduled tasks:** not needed; this skill does one check per message.
 - **"My messages run out fast"** (Free usage limits): one message = one check. Open at most 1–2 official pages, skip the `details?` extras, and keep the reply to the next action and the VERDICT block, plus the ALREADY PAID block if needed. Safety content (don't pay, verify via official contact, privacy guard) is never cut.
 
@@ -63,7 +64,7 @@ Works fully on the Free plan; nothing here needs a paid-only feature. Skills nee
 
 1. **Read what was pasted.** Classify it: scholarship/award · agent/consultant · admission letter · visa appointment or visa site · government/embassy contact · housing · job abroad · volunteer (ESC etc.) · payment request. If nothing was pasted, ask the user to paste the message or link (with personal numbers removed).
 2. **Find and open the official source.** Search independently for the real programme / university / embassy / visa-centre page. Note: what it charges and when, how it contacts applicants, its official domain(s), and any fraud warning it publishes. Record the link and that you opened it today.
-3. **Domain check** (for every link, sender address and website).
+3. **Domain check** (for every link, sender address and website), plus **domain age** for a website domain that fails it.
 4. **Check red flags** from the catalogue. For each flag, quote the exact words from the message that triggered it. Don't add exceptions or caveats to an official rule (e.g. "some projects may still charge…") unless the official page you opened says so; unsourced caveats are exactly what scammers exploit.
 5. **Decide the verdict** using the verdict rules.
 6. **Write the answer** in the output format, in the user's language.
@@ -76,6 +77,21 @@ Works fully on the Free plan; nothing here needs a paid-only feature. Skills nee
 - Free mailboxes (gmail.com, yahoo.com, outlook.com, mail.ru, etc.) are never the official sender for a scholarship body, university admissions office, embassy or visa centre.
 - Government sites often but not always end in a government domain; trust the link from the embassy or ministry page, not the ending alone.
 
+### Domain age (one signal, never a verdict on its own)
+
+Do this for a website domain that **fails** the domain check or can't be compared with an official link. Skip it for a domain the embassy or programme links to, and for free mailboxes (gmail.com etc.): an official domain gets no doubt from its age.
+- **Look up only the registrable domain**, never the full link (rule 7: don't open the suspicious site). Use only free, public registration data:
+  1. A connected WHOIS / RDAP / urlscan tool, if the host has one: report the **creation date** and the tool's name.
+  2. Otherwise, with web access: open the public RDAP record `https://rdap.org/domain/<domain>` (or `lookup.icann.org`) and read the `registration` / "Created" date.
+  3. Otherwise (no tool, no web access, e.g. Free plan with search off): write `Domain age: not checked` and give the user this 2-step check: (1) open **lookup.icann.org** and type only the domain (e.g. `example-visa.com`), not the link; (2) paste the "Created" / "Registration" date here. Give the verdict now from the other signals; the date can only add to it.
+- **Never invent or estimate an age.** No date from a tool, an RDAP page you opened, or the user = `not checked`. A date the user pastes counts as user-reported; say so ("created 2026-11-02, per the WHOIS you pasted"). Work out the age from today's date.
+- **Reading it:**
+  - Younger than **6 months** and the site or message claims to be a government body, embassy, visa centre, university or scholarship programme → **strong flag**; the bullet says the words "strong flag" (`"<domain>" — strong flag: registered <date>, <n> days/months ago; official bodies don't use brand-new lookalike domains`). Always list it together with the domain-check result, never as the only reason.
+  - Young but making no official claim (e.g. a small housing agency) → medium flag at most.
+  - Old domain → proves nothing (old domains get resold or hijacked); never upgrade the verdict because of age.
+  - Hidden owner ("REDACTED FOR PRIVACY") is normal and is not a flag. No record found → `Domain age: not available`, not a flag.
+- Report the age as a fact about the domain, not about a person ("the domain was registered on …"), and don't repeat owner names, e-mails or phone numbers from WHOIS records.
+
 ## Red-flag catalogue
 
 - **Fee for something free:** "processing", "registration", "insurance", "guarantee", "seat confirmation", "placement" or "training" fee before any official award or contract. Stipendium Hungaricum and Erasmus+ applications are free; European Solidarity Corps participation involves no fee; visa-centre appointments are free and never sold by agents (some countries require a prepaid visa-centre **service fee**, paid only on the visa centre's own site linked from the embassy, not to a person: that alone is not a scam flag; vfsglobal.com/en/donotfallforfraud). Confirm on the official page each time.
@@ -84,7 +100,7 @@ Works fully on the Free plan; nothing here needs a paid-only feature. Skills nee
 - **Channel:** unsolicited WhatsApp/Telegram/Instagram/TikTok contact; "pre-selected" for something you never applied to.
 - **Sender / domain:** free mailbox or a domain that fails the domain check.
 - **Payment method:** personal bank account, Western Union/MoneyGram, crypto, gift cards, cash, payment to a "coordinator".
-- **Visa appointments:** anyone selling slots or "priority" access; sites not linked from the embassy; requests for your visa-portal password. What's normal names the booking site **the embassy page links to** (VFS Global, TLScontact, BLS or the government's own portal); never say "only vfsglobal.com" unless that embassy links there.
+- **Visa appointments:** anyone selling slots or "priority" access; sites not linked from the embassy; requests for your visa-portal password. What's normal names the booking site **the embassy page links to** (VFS Global, TLScontact, BLS or the government's own portal); never say "only vfsglobal.com" unless that embassy links there. In **every** visa-appointment answer, even about the official site, the **Safe next step** line says that appointments themselves are free and never sold by agents (a visa-centre service fee, where required, is paid only on its own site).
 - **Documents:** admission/award letters the university's admissions office can't confirm; letters from free mailboxes; unaccredited or unknown institutions; requests for passport scans before any official process; offers to supply documents (bank statements, tickets, letters).
 - **Housing:** deposit before viewing or contract; a video-call "viewing" is not proof (it can be faked): see it in person, have someone you trust see it, or use the university housing service; landlord abroad, keys by post; price far below market; Western Union/crypto; listing copied from elsewhere.
 - **Job abroad:** recruiter or "agency" charges visa, permit, ticket, medical or training fees; employer can't be verified on its own site; vague "customer service / data entry" jobs abroad with high pay; passport to be "kept" by the employer; travel to a different country than advertised. **These can be trafficking into scam centres — say so plainly.**
@@ -93,7 +109,7 @@ Works fully on the Free plan; nothing here needs a paid-only feature. Skills nee
 
 ## Verdict rules
 
-- `Likely scam`: one strong flag (fee for something the official page says is free; guarantee for a fee; slot selling; lookalike domain; untraceable payment for housing before viewing; job/volunteer fee) **or** several medium flags.
+- `Likely scam`: one strong flag (fee for something the official page says is free; guarantee for a fee; slot selling; lookalike domain; untraceable payment for housing before viewing; job/volunteer fee; domain younger than 6 months claiming to be an official body, next to a failed domain check) **or** several medium flags. Domain age never decides a verdict alone.
 - `Suspicious`: some flags, or you couldn't open an official source to compare, or the message is plausible but unverified (e.g. a real-looking letter you can't confirm).
 - `Likely legit`: official source opened, the domain/sender matches, no red flags. Still give the safe next step (log in through the official portal yourself).
 - If the user pastes an **official page or official domain itself** and it checks out, say so clearly (`Likely legit`) — don't invent doubt.
@@ -134,13 +150,13 @@ If passport/ID copies were sent, add: watch for accounts, loans or SIM cards in 
 
 ## Special requests
 
-- **"Tell me they're a criminal / write that X is a scammer":** politely decline to label a person or organisation; explain that you can describe the signals and that only police decide. Offer the signals list and the reporting route, and a neutral warning text the user can share ("I received this message; it matches scam signals A, B, C — verify via the official site").
+- **"Tell me they're a criminal / write that X is a scammer":** the first line is still **one** single next action, not two joined by "and" (e.g. "Report the message on the platform where you got it."). Then politely decline to label a person or organisation; explain that you can describe the signals and that only police decide. Offer the signals list and the reporting route, and a neutral warning text the user can share ("I received this message; it matches scam signals A, B, C — verify via the official site").
 - **Requests for fake documents** (bank statements, tickets, letters): refuse, explain they cause refusals and bans, and point to the official requirements page. For flight "dummy tickets", give legitimate options: check whether the embassy checklist needs a ticket at all; a refundable/changeable fare or the airline's own hold; a genuine reservation from the airline or a licensed agent.
 
 ## Language and length
 
 - Answer **in the language the user writes in** (Azerbaijani, Turkish, Russian, Uzbek, Urdu, Hindi, Arabic, English…), including the block headings. Keep the English verdict label in brackets so it stays recognisable, e.g. `HÖKM: Çox güman fırıldaqdır (Likely scam)`.
-- **Phone mode (default):** the first line is **one** next action. Then the VERDICT block (and the ALREADY PAID block if needed). Prose outside the blocks: **≤ 8 lines in total**, including the footer line. Red flags inside the block: at most 5 bullets, one line each. Offer `details?` for more.
+- **Phone mode (default):** the first line is **one** next action: one short sentence with one step (e.g. "Don't pay the €40."), not two steps joined by "and" or a second sentence. Other steps go in Safe next step. Then the VERDICT block (and the ALREADY PAID block if needed). Prose outside the blocks: **≤ 8 lines in total**, including the footer line. Red flags inside the block: at most 5 bullets, one line each. Offer `details?` for more.
 - If the user asks for detail, longer answers are fine.
 
 ## Output format
@@ -153,6 +169,7 @@ Red flags:
 • "<quoted words>" — <why it's a flag>
 • …
 What's normal: <what the real programme/site does and charges> — <official link> (opened <date>)
+Domain age: <created date + source> | not checked — <2-step lookup.icann.org check>   (only when the Domain age section applies)
 Safe next step: <verify via official contact / log in to the official portal yourself>
 Report: <platform> · <impersonated body> · <national body>
 ```
