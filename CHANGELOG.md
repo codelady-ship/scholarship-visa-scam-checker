@@ -12,6 +12,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - Optional `Domain age:` line in the output format, and a plan-compatibility line for hosts with no tool and no web access.
 - Evals DA-1 to DA-3.
 
+### Fixed (blind eval rounds 1-3)
+- The age bullet says "strong flag" in words.
+- Without web access, the official domain is named as unverified so the user can compare.
+- Every visa-appointment answer says in Safe next step that appointments are free and never sold by agents.
+- The first line is one single action (one step, no "and"), including when declining to label a person.
+
 ### Unchanged
 - Rule 7: only the registrable domain is looked up, never the suspicious link. No network script was added; the package stays Markdown-only.
 
