@@ -45,6 +45,10 @@ Generic scam checkers look at bank texts and parcel messages. This skill knows h
 - **Never contacts anyone, pays, or reports on your behalf.** You stay in control.
 - **Never gives legal advice.**
 
+## Plan compatibility
+
+Works on **every Claude plan: Free, Pro, Max and Team**. Turn on *Settings → Capabilities → Code execution and file creation* (Skills need it; every plan has it). Without web search it never says "Likely legit" and asks you to paste the official page. No scheduled tasks are needed. On tight Free limits, one message = one check. Checked against [claude.com/pricing](https://claude.com/pricing) on 2026-11-10.
+
 ## Pricing
 
 **Free.** This is a separate, standalone skill. There is no paid tier inside it, no gated features and no checkout link.
