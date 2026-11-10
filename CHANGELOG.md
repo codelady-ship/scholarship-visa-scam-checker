@@ -3,6 +3,15 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-11-10
+
+### Added
+- **Plan compatibility** section. Free plan fully supported: without web search the verdict is never `Likely legit` and fee rules are marked not checked. One check per message on tight limits.
+- Evals PC-1 to PC-3 and SC-18.
+
+### Fixed
+- Visa-centre fees: appointments are free and never sold by agents, but some countries require a prepaid **service fee** on the visa centre's own site. That alone is no longer treated as a scam flag (source: vfsglobal.com/en/donotfallforfraud).
+
 ## [1.1.0] - 2026-11-09
 
 Research-driven must-have features. See `docs/research.md`.
