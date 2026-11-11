@@ -10,7 +10,7 @@
 
 ## Output
 
-> **Next action:** don't reply and don't pay. Report the number in WhatsApp, then block it.
+> **Next action:** don't pay the USD 150.
 
 ```
 VERDICT: Likely scam

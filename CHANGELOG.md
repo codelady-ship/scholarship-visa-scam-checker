@@ -3,6 +3,25 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.5.0] - 2026-11-11
+
+Free UN and volunteering fraud module. Builds on 1.4.0 (PR #7).
+
+### Added
+- **UN and volunteering offer mode** for any offer that uses the UN, a UN agency or a volunteering programme:
+  - the UN never charges a fee at any stage, **visa fees included**: un.org/en/aboutun/fraudalert and uncdf.org/scam-alert (both opened 2026-11-11); unv.org/scam-alert marked verify (it blocks automated fetches);
+  - official sites only: careers.un.org (UN jobs and internships) and app.unv.org (UN Volunteers), both opened 2026-11-11; the user types them and finds the same post there;
+  - lookalike UN domains, "refundable" fees, free-mail senders, moves to WhatsApp/Telegram, offers without an interview, early passport/bank/code requests;
+  - agencies that charge to place volunteers are not the UN or UNV route;
+  - ESC: "You will not need to pay anything to participate", quoted from Your Europe (europa.eu, opened 2026-11-11), plus "free of charge for the volunteer" from the ESC Info kit for volunteers 2024 (PDF, opened), with its only exception (possible travel-cost contribution, call years 2021–2024), which never covers a fee to an agent;
+  - verdict rule: `Likely legit` only when the same post is on the official site opened in the session.
+- Evals UN-1 to UN-4, plus UN-5 (regression: careers.un.org is official).
+
+### Changed
+- Description, summary and one keyword mention UN offers. Description 1,001 / 1,024 characters.
+- Language: the first line and the closing question are in the user's language too, and the reply ends with one question, never two (blind round 1, UN-4).
+- Phone readability pass (study-abroad-copilot issue #9, scam-checker part): the "not opened" marker is ≤ 3 words; plain-words list adds LMIA and voivode; new rule order (phone limits beat modes and multi-part questions; answer each part in 1–2 lines, then `details? 1/2/3`; about 20 phone lines, never by dropping safety content); the Nigar example's first line is one short action.
+
 ## [1.4.0] - 2026-11-11
 
 Job offer mode (issue #5). Builds on 1.3.1 (PR #6).

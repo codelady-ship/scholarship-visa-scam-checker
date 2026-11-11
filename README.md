@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-D97757.svg)](SKILL.md)
-[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](CHANGELOG.md)
 [![Price: Free](https://img.shields.io/badge/price-free-brightgreen.svg)](#pricing)
 
 > **Compatibility:** works best with web search on, so the skill can open the official programme, embassy or visa-centre page. Without browsing it still lists red flags, but it never gives a `Likely legit` verdict.
@@ -31,7 +31,7 @@ Generic scam checkers look at bank texts and parcel messages. This skill knows h
 - **Domain age** (one signal, never a verdict alone): creation date from a connected WHOIS/RDAP tool or the public RDAP record; without either, a 2-step lookup.icann.org check for you. A brand-new domain claiming to be an embassy, visa centre or scholarship body is a strong flag. Ages are never guessed.
 - **Job offer mode:** who really pays the work permit or visa (UK sponsor costs, Canada LMIA, Poland work permit, Germany, with official links), pay vs typical pay (marked *estimate*), an offer-letter and contract checklist (legal name, address, signatory, e-mail domain, no fee clause, passport not kept), and a lookup in the official business register (Companies House, KRS, Handelsregister, EU registers, Corporations Canada, Azerbaijan taxpayer search) with a call-back on the register's number, never the one in the offer. `Likely legit` only when the register entry was opened.
 - **Trafficking warning in plain words** when a job offer asks for fees or your passport, plus the national anti-trafficking hotline when its official page is verified (for example 152 in Azerbaijan).
-- **Volunteer checks** (ESC "placement fees" and similar).
+- **UN and volunteering offer mode:** the UN never charges a fee at any stage, visa fees included (un.org fraud alert, UNCDF/UNV scam alerts); UN Secretariat posts are on careers.un.org and UN Volunteer posts on app.unv.org (other agencies use their own official site); lookalike UN domains, "refundable" fees, Gmail senders and moves to WhatsApp or Telegram are flagged; agencies that charge to place you as a "UN volunteer" are not the UN route; European Solidarity Corps volunteers pay nothing to take part (Your Europe and the ESC info kit).
 - **What's normal:** what the real programme, university, embassy or visa centre does and charges, with the official link.
 - **Safe next steps** that verify through contacts on the official website, never through the message.
 - **How to report:** platform, impersonated organisation, visa-centre fraud page, national cybercrime or consumer body.
