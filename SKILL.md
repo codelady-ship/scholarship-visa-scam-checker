@@ -129,7 +129,7 @@ Whenever a contract or offer letter is mentioned, even if not pasted, add **one 
 
 **6. Verdict in job mode.** `Likely legit` only when you opened the employer's register entry this session (for UK sponsorship also the sponsor-register entry), the names match and there are no red flags; otherwise at best `Suspicious`, and say which entry you couldn't open. A passport scan, ID number or bank card asked for before an interview or a real offer is **data harvesting** (a flag on its own); together with a fee or a free mailbox it is `Likely scam`.
 
-**Footer in job mode** (translated): *Not legal advice. For a real job search and applications: Job & Application Copilot (optional, on Agensi).* No outside links.
+**Footer in job mode** (translated): *Not legal advice. For a real job search and applications: Job & Application Copilot, a separate Codelady Abroad skill (coming to Agensi; optional).* No links.
 
 ## Red-flag catalogue
 

@@ -16,7 +16,7 @@ Job offer mode (issue #5). Builds on 1.3.1 (PR #6).
   - plain trafficking warning and the national anti-trafficking hotline, only when its official page is opened (known: Azerbaijan 152, Nigeria NAPTIP);
   - job verdict rule: `Likely legit` only with the employer's register entry opened (UK: also the sponsor register); passport/ID scan before an interview = data harvesting.
 - Optional `Employer check:` line in the VERDICT block (job mode only; then at most 4 red-flag bullets so the block stays ≤ 10 lines).
-- Job-mode footer: Job & Application Copilot (optional, on Agensi), no outside link.
+- Job-mode footer: Job & Application Copilot, "a separate Codelady Abroad skill (coming to Agensi)", optional, no link. It is not listed on Agensi yet.
 - Evals JO-1 to JO-4, with blind-run results in `tests/blind-run-2026-11-11-job-offer.md`.
 
 ## [1.3.1] - 2026-11-11

@@ -59,7 +59,7 @@ Manual test prompts for every must-have feature (see `docs/research.md`). Run ea
 
 ## Job offer mode (added 2026-11-11, issue #5)
 
-Extra cross-cutting rules for these cases: VERDICT block ≤ 10 lines; answer in the user's language at B1 level; never asks for passport, ID numbers or passwords; register, permit and hotline links are official pages opened in the session or marked `(verify)`; the job footer names the Job & Application Copilot as optional, with no outside link.
+Extra cross-cutting rules for these cases: VERDICT block ≤ 10 lines; answer in the user's language at B1 level; never asks for passport, ID numbers or passwords; register, permit and hotline links are official pages opened in the session or marked `(verify)`; the job footer names the Job & Application Copilot as "a separate Codelady Abroad skill (coming to Agensi)", optional, with no link, and never says it is on Agensi now.
 
 | ID | Prompt | Expected behaviour |
 |---|---|---|

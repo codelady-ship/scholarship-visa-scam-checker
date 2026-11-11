@@ -146,7 +146,7 @@ For a full plan beyond the scam check:
 
 - **Study & Volunteer Abroad Copilot**: finds fully funded scholarships and volunteering (Stipendium Hungaricum, Türkiye Bursları, Erasmus Mundus, DAAD, ESC), checks eligibility, writes honest CVs and motivation letters, tracks deadlines.
 - **Student Travel Copilot**: from admission letter to your first 30 days abroad: visa file with official links, document consistency, proof of funds, housing, budget and arrival deadlines.
-- **Job & Application Copilot**: for a real job search after the scam check: applications, CVs and visa-sponsorship checks. Job-offer answers point here (on Agensi only, no outside links).
+- **Job & Application Copilot**: for a real job search after the scam check: applications, CVs and visa-sponsorship checks. A separate Codelady Abroad skill, coming to Agensi (not listed yet). Job-offer answers mention it by name only, with no link.
 
 ## Contributing
 
