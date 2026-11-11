@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-D97757.svg)](SKILL.md)
-[![Version](https://img.shields.io/badge/version-1.3.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](CHANGELOG.md)
 [![Price: Free](https://img.shields.io/badge/price-free-brightgreen.svg)](#pricing)
 
 > **Compatibility:** works best with web search on, so the skill can open the official programme, embassy or visa-centre page. Without browsing it still lists red flags, but it never gives a `Likely legit` verdict.
@@ -29,7 +29,9 @@ Generic scam checkers look at bank texts and parcel messages. This skill knows h
 - **Red flags found, quoting the exact words** that triggered them: fees for free things, guarantees, pressure, unofficial senders, payment method, lookalike domains, unverifiable letters, housing and job-abroad patterns.
 - **Domain check:** compares the real registrable domain with the one the embassy or programme links to (extra words, typos, other endings, brand hidden in a subdomain, free mailboxes).
 - **Domain age** (one signal, never a verdict alone): creation date from a connected WHOIS/RDAP tool or the public RDAP record; without either, a 2-step lookup.icann.org check for you. A brand-new domain claiming to be an embassy, visa centre or scholarship body is a strong flag. Ages are never guessed.
-- **Job-abroad and volunteer checks**, including an explicit warning when a fake job offer looks like trafficking into scam centres.
+- **Job offer mode:** who really pays the work permit or visa (UK sponsor costs, Canada LMIA, Poland work permit, Germany, with official links), pay vs typical pay (marked *estimate*), an offer-letter and contract checklist (legal name, address, signatory, e-mail domain, no fee clause, passport not kept), and a lookup in the official business register (Companies House, KRS, Handelsregister, EU registers, Corporations Canada, Azerbaijan taxpayer search) with a call-back on the register's number, never the one in the offer. `Likely legit` only when the register entry was opened.
+- **Trafficking warning in plain words** when a job offer asks for fees or your passport, plus the national anti-trafficking hotline when its official page is verified (for example 152 in Azerbaijan).
+- **Volunteer checks** (ESC "placement fees" and similar).
 - **What's normal:** what the real programme, university, embassy or visa centre does and charges, with the official link.
 - **Safe next steps** that verify through contacts on the official website, never through the message.
 - **How to report:** platform, impersonated organisation, visa-centre fraud page, national cybercrime or consumer body.
@@ -144,6 +146,7 @@ For a full plan beyond the scam check:
 
 - **Study & Volunteer Abroad Copilot**: finds fully funded scholarships and volunteering (Stipendium Hungaricum, Türkiye Bursları, Erasmus Mundus, DAAD, ESC), checks eligibility, writes honest CVs and motivation letters, tracks deadlines.
 - **Student Travel Copilot**: from admission letter to your first 30 days abroad: visa file with official links, document consistency, proof of funds, housing, budget and arrival deadlines.
+- **Job & Application Copilot**: for a real job search after the scam check: applications, CVs and visa-sponsorship checks. Job-offer answers point here (on Agensi only, no outside links).
 
 ## Contributing
 

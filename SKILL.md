@@ -1,7 +1,7 @@
 ---
 name: scholarship-visa-scam-checker
-description: Free scam checker for students and applicants going abroad. The user pastes a message, e-mail, ad, website URL, letter or offer (scholarship "pre-selection", agent promising admission or a visa, job offer abroad, housing ad, visa-appointment site, admission letter, "processing fee", volunteer "placement fee", crypto or gift-card payment, WhatsApp/Telegram recruiter) and gets a verdict (Likely legit only with an official source / Suspicious / Likely scam), quoted red flags, what the real programme does (official link opened in the session), safe next steps, how to report, and what to do if money was already paid. Describes signals and never accuses named people. Never asks for or repeats passwords or ID numbers. Short, phone-friendly answers in the user's language. Not legal advice. Use when someone asks "is this scholarship a scam", "is this visa site real", "agent wants a fee", "landlord wants a deposit first", "I already paid, what now".
-version: 1.3.1
+description: Free scam checker for students and applicants going abroad. The user pastes a message, e-mail, ad, website URL, letter or offer (scholarship "pre-selection", agent promising admission or a visa, job offer abroad, housing ad, visa-appointment site, admission letter, "processing fee", volunteer "placement fee", crypto or gift-card payment, WhatsApp/Telegram recruiter) and gets a verdict (Likely legit only with an official source / Suspicious / Likely scam), quoted red flags, what the real programme does (official link opened in the session), safe next steps, how to report, and what to do if money was already paid. Describes signals and never accuses named people. Never asks for or repeats passwords or ID numbers. Short, phone-friendly answers in the user's language. Not legal advice. Use when someone asks "is this scholarship a scam", "is this visa site real", "agent wants a fee", "landlord wants a deposit first", "they want money for my work permit", "is this job offer real", "I already paid, what now".
+version: 1.4.0
 summary: Free scam checker for students and scholarship, visa, volunteer and job-abroad applicants. Paste a message, ad, letter or link and get a verdict, red flags, the official comparison, safe next steps, reporting routes and recovery steps if you paid. Uses only official sources it opens and links.
 tags:
   - scam-detection
@@ -21,7 +21,7 @@ keywords:
   - processing fee
   - housing scam
   - VFS fake website
-  - job abroad scam
+  - fake job offer abroad
   - ESC placement fee
   - visa guarantee
   - already paid scammer
@@ -31,7 +31,7 @@ use_cases:
   - Check an agent's promise of guaranteed admission or visa
   - Check a student housing ad before paying a deposit
   - Check an admission letter's sender and verification route
-  - Check a job or volunteer offer abroad that asks for fees
+  - Check a job offer abroad: who pays the permit, the contract, the employer in the business register
   - Get reporting routes for a scam in your country
   - Get recovery steps after paying a scammer
 docs_url: https://github.com/codelady-ship/scholarship-visa-scam-checker
@@ -62,7 +62,7 @@ Works fully on the Free plan; nothing here needs a paid-only feature. Skills nee
 
 ## Workflow
 
-1. **Read what was pasted.** Classify it: scholarship/award · agent/consultant · admission letter · visa appointment or visa site · government/embassy contact · housing · job abroad · volunteer (ESC etc.) · payment request. If nothing was pasted, ask the user to paste the message or link (with personal numbers removed).
+1. **Read what was pasted.** Classify it: scholarship/award · agent/consultant · admission letter · visa appointment or visa site · government/embassy contact · housing · job abroad (also run *Job offer mode*) · volunteer (ESC etc.) · payment request. If nothing was pasted, ask the user to paste the message or link (with personal numbers removed).
 2. **Find and open the official source.** Search independently for the real programme / university / embassy / visa-centre page. Note: what it charges and when, how it contacts applicants, its official domain(s), and any fraud warning it publishes. Record the link and that you opened it today.
 3. **Domain check** (for every link, sender address and website), plus **domain age** for a website domain that fails it.
 4. **Check red flags** from the catalogue. For each flag, quote the exact words from the message that triggered it. Don't add exceptions or caveats to an official rule (e.g. "some projects may still charge…") unless the official page you opened says so; unsourced caveats are exactly what scammers exploit.
@@ -93,6 +93,44 @@ Do this for a website domain that **fails** the domain check or can't be compare
   - Hidden owner ("REDACTED FOR PRIVACY") is normal and is not a flag. No record found → `Domain age: not available`, not a flag.
 - Report the age as a fact about the domain, not about a person ("the domain was registered on …"), and don't repeat owner names, e-mails or phone numbers from WHOIS records.
 
+## Job offer mode
+
+Run this for any job offer abroad (recruiter message, offer letter, contract, "work permit fee"). It adds to the normal checks; golden rules, verdict rules and phone limits stay the same.
+
+**1. Who pays the permit or visa.** Open the official page for the destination in this session and compare. If it won't open, write `(verify)` and don't state the rule as checked. Known start points (checked 2026-11-11):
+- **UK (Skilled Worker):** the employer pays its sponsor costs and the Immigration Skills Charge, and can lose its licence if it asks the worker to pay them (gov.uk/uk-visa-sponsorship-employers/immigration-skills-charge). The worker pays only their own visa fee and health surcharge, on gov.uk (gov.uk/skilled-worker-visa/how-much-it-costs). The employer must be on the *Register of licensed sponsors: workers* (gov.uk/government/publications/register-of-licensed-sponsors-workers).
+- **Canada (LMIA):** the employer pays the LMIA fee (families hiring a caregiver may be exempt) and may not take it, or any recruitment fee, back from the worker (canada.ca/en/employment-social-development/services/foreign-workers/caregiver/requirements.html). Jobs open to foreign workers are marked on **Job Bank** (jobbank.gc.ca). Report: **Canadian Anti-Fraud Centre** (antifraudcentre-centreantifraude.ca, 1-888-495-8501).
+- **Poland:** the employer applies for the work permit (zezwolenie na pracę) to the voivode (regional governor's office), online via praca.gov.pl. Job agencies may not charge job seekers fees, only real costs written in the agreement; a legal agency is in the KRAZ register (gov.pl/web/your-europe/seeking-employment).
+- **Germany:** visa and procedure fees are paid only to official bodies (German embassy or consulate, foreigners office); for the fast-track procedure the employer applies in Germany. Official info: make-it-in-germany.com and the German mission's visa page (verify).
+- **Other countries:** search the government work-permit page; if not found, write "the destination's official work-permit page (verify)".
+- A permit, visa, LMIA, "processing", ticket, medical or training fee paid **to a recruiter, agent or "coordinator"** = strong flag, in any country.
+
+**2. Pay vs typical pay.** If the pay looks far above normal for the role and country, add one bullet labelled *estimate* (e.g. "€2,500 for warehouse work — estimate: well above typical pay"). Use an official wage source if you opened one; never present the figure as checked.
+
+**3. Contract / offer-letter checklist.** A PDF, logo, stamp or website proves nothing: scammers make all of them. Check (in phone mode only the failed items become red flags; the full list goes in `details?`):
+- employer's **legal name** = the business register entry (exact spelling);
+- **address** = the register address (not only a P.O. box, not a different country);
+- **signatory** = a named person whose role fits (registers often list directors);
+- **e-mail domain** = the company's own site name, not gmail/outlook etc.;
+- **no fee clause** (permit, visa, training, uniform, deposit before arrival);
+- **passport not kept** by the employer or agency, and no passport scan asked for before an interview or a real offer;
+- job, city and country match the ad.
+Whenever a contract or offer letter is mentioned, even if not pasted, add **one prose line** in phone mode: "Check the contract: company name and address = the register, no fee, you keep your passport. Full checklist: `details?`" (translated). If the user pastes a contract, remind them to remove passport and ID numbers first. Never ask for them.
+
+**4. Business register and call-back.** Tell the user to find the employer in the **official business register** and to call back on the number listed there (or on the company's own site found independently), never the number in the offer. Open the register this session when you can; if it won't load, give the link with `(verify)`. Search by company name or company registration number, never a personal ID. Start points:
+- UK — Companies House, find-and-update.company-information.service.gov.uk;
+- Poland — KRS, wyszukiwarka-krs.ms.gov.pl (verify), and CEIDG for sole traders on biznes.gov.pl (verify);
+- Germany — handelsregister.de or unternehmensregister.de (verify);
+- other EU countries — the EU e-Justice "business registers" search, e-justice.europa.eu (verify);
+- Canada — Corporations Canada federal search, ised-isde.canada.ca, or the province's registry;
+- Azerbaijan — taxpayer search by VÖEN (tax number) or name in the e-services on taxes.gov.az (verify).
+
+**5. Trafficking warning.** When a fee, a passport request or a vague high-pay job appears, add one plain line outside the block: "Some fake job offers trap people in forced work abroad. Never give your passport to anyone." In Report, add the **national anti-trafficking hotline for the user's country** only after you open its official page this session; otherwise write "national anti-trafficking hotline / police (verify the official page)". Known: Azerbaijan — **152** (Ministry of Internal Affairs anti-trafficking line); Nigeria — NAPTIP (naptip.gov.ng). Already abroad: local police and the user's own embassy.
+
+**6. Verdict in job mode.** `Likely legit` only when you opened the employer's register entry this session (for UK sponsorship also the sponsor-register entry), the names match and there are no red flags; otherwise at best `Suspicious`, and say which entry you couldn't open. A passport scan, ID number or bank card asked for before an interview or a real offer is **data harvesting** (a flag on its own); together with a fee or a free mailbox it is `Likely scam`.
+
+**Footer in job mode** (translated): *Not legal advice. For a real job search and applications: Job & Application Copilot (optional, on Agensi).* No outside links.
+
 ## Red-flag catalogue
 
 - **Fee for something free:** "processing", "registration", "insurance", "guarantee", "seat confirmation", "placement" or "training" fee before any official award or contract. Stipendium Hungaricum and Erasmus+ applications are free; European Solidarity Corps participation involves no fee; visa-centre appointments are free and never sold by agents (some countries require a prepaid visa-centre **service fee**, paid only on the visa centre's own site linked from the embassy, not to a person: that alone is not a scam flag; vfsglobal.com/en/donotfallforfraud). Confirm on the official page each time.
@@ -104,13 +142,14 @@ Do this for a website domain that **fails** the domain check or can't be compare
 - **Visa appointments:** anyone selling slots or "priority" access; sites not linked from the embassy; requests for your visa-portal password. What's normal names the booking site **the embassy page links to** (VFS Global, TLScontact, BLS or the government's own portal); never say "only vfsglobal.com" unless that embassy links there. In **every** visa-appointment answer, even about the official site, the **Safe next step** line says that appointments themselves are free and never sold by agents (a visa-centre service fee, where required, is paid only on its own site).
 - **Documents:** admission/award letters the university's admissions office can't confirm; letters from free mailboxes; unaccredited or unknown institutions; requests for passport scans before any official process; offers to supply documents (bank statements, tickets, letters).
 - **Housing:** deposit before viewing or contract; a video-call "viewing" is not proof (it can be faked): see it in person, have someone you trust see it, or use the university housing service; landlord abroad, keys by post; price far below market; Western Union/crypto; listing copied from elsewhere.
-- **Job abroad:** recruiter or "agency" charges visa, permit, ticket, medical or training fees; employer can't be verified on its own site (a website and a contract PDF prove nothing: scammers make both; the user can find the company in the country's official business register, verify the page, and call the number listed there, not the one in the offer); vague "customer service / data entry" jobs abroad with high pay; passport to be "kept" by the employer; travel to a different country than advertised. **These can be trafficking into scam centres — say so plainly**, in simple words: "Some fake job offers trap people in forced work abroad. Never give your passport to anyone."
+- **Job abroad** (see also *Job offer mode*): recruiter or "agency" charges visa, permit, ticket, medical or training fees; employer can't be verified on its own site (a website and a contract PDF prove nothing: scammers make both; the user can find the company in the country's official business register, verify the page, and call the number listed there, not the one in the offer); vague "customer service / data entry" jobs abroad with high pay; passport to be "kept" by the employer; travel to a different country than advertised. **These can be trafficking into scam centres — say so plainly**, in simple words: "Some fake job offers trap people in forced work abroad. Never give your passport to anyone."
 - **Volunteer (ESC etc.):** "placement", "matching" or "training" fee; placement guaranteed to anyone who pays; project not findable on the official European Youth Portal.
 - **Data harvesting:** asks for passwords, one-time codes, card details or ID numbers.
 
 ## Verdict rules
 
 - `Likely scam`: one strong flag (fee for something the official page says is free; guarantee for a fee; slot selling; lookalike domain; untraceable payment for housing before viewing; job/volunteer fee; domain younger than 6 months claiming to be an official body, next to a failed domain check) **or** several medium flags. Domain age never decides a verdict alone.
+- Job offers: also apply *Job offer mode* step 6.
 - `Suspicious`: some flags, or you couldn't open an official source to compare, or the message is plausible but unverified (e.g. a real-looking letter you can't confirm).
 - `Likely legit`: official source opened, the domain/sender matches, no red flags. Still give the safe next step (log in through the official portal yourself).
 - If the user pastes an **official page or official domain itself** and it checks out, say so clearly (`Likely legit`) — don't invent doubt.
@@ -157,7 +196,7 @@ If passport/ID copies were sent, add: watch for accounts, loans or SIM cards in 
 ## Language and length
 
 - Answer **in the language the user writes in** (Azerbaijani, Turkish, Russian, Uzbek, Urdu, Hindi, Arabic, English…), including the block headings. Keep the English verdict label in brackets so it stays recognisable, e.g. `HÖKM: Çox güman fırıldaqdır (Likely scam)`.
-- **Phone mode (default):** the first line is **one** next action: one short sentence with one step (e.g. "Don't pay the €40."), not two steps joined by "and" or a second sentence. Other steps go in Safe next step. Then the VERDICT block (and the ALREADY PAID block if needed). Prose outside the blocks: **≤ 8 lines in total**, including the footer line. Red flags inside the block: at most 5 bullets, one line each; the whole VERDICT block at most 10 short lines. Offer `details?` for more.
+- **Phone mode (default):** the first line is **one** next action: one short sentence with one step (e.g. "Don't pay the €40."), not two steps joined by "and" or a second sentence. Other steps go in Safe next step. Then the VERDICT block (and the ALREADY PAID block if needed). Prose outside the blocks: **≤ 8 lines in total**, including the footer line. Red flags inside the block: at most 5 bullets, one line each; the whole VERDICT block at most 10 short lines (with the `Employer check` line, at most 4 red-flag bullets). Offer `details?` for more.
 - **Plain words** for B1 readers: "site name" instead of "registrable domain", "ask your bank to return the money" instead of "chargeback", "two-step login" instead of "2FA". Explain any other technical or legal word in ≤ 4 words the first time.
 - If the user asks for detail, longer answers are fine.
 
@@ -172,6 +211,7 @@ Red flags:
 • …
 What's normal: <what the real programme/site does and charges> — <official link> (opened <date>)
 Domain age: <created date + source> | not checked — <2-step lookup.icann.org check>   (only when the Domain age section applies)
+Employer check: <official business register link> — <found, names match | not found | not opened (verify)>   (job mode only)
 Safe next step: <verify via official contact / log in to the official portal yourself>
 Report: <platform> · <impersonated body> · <national body>
 ```
@@ -181,5 +221,7 @@ Report: <platform> · <impersonated body> · <national body>
 Then 1–3 lines of plain explanation if useful, and finish with exactly one footer line, **translated into the user's language** (keep the two skill names in English):
 
 *Not legal advice. For a full application/visa plan: Study & Volunteer Abroad Copilot / Student Travel Copilot (optional).*
+
+In job mode, use the job footer from *Job offer mode* instead.
 
 Templates the user can copy: `templates/verify-email-to-official-office.md`, `templates/report-checklist.md`, `templates/already-paid-recovery-checklist.md`.

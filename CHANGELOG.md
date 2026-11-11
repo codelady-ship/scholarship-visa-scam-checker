@@ -3,6 +3,22 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.4.0] - 2026-11-11
+
+Job offer mode (issue #5). Builds on 1.3.1 (PR #6).
+
+### Added
+- **Job offer mode** for any job offer abroad:
+  - who pays the permit or visa, with official links checked 2026-11-11: UK (employer pays sponsor costs and the Immigration Skills Charge; worker pays only their own visa fee on gov.uk; sponsor register), Canada (employer pays the LMIA fee and may not recover it or recruitment fees; Job Bank; Canadian Anti-Fraud Centre), Poland (employer applies to the voivode via praca.gov.pl; agencies may not charge job seekers; KRAZ), Germany (fees only to official bodies; marked verify);
+  - pay vs typical pay, always labelled *estimate*;
+  - contract / offer-letter checklist: legal name = register entry, address, signatory, e-mail domain, no fee clause, passport not kept, job and country match;
+  - business-register lookup and call-back on the register's number: Companies House, KRS/CEIDG, Handelsregister/Unternehmensregister, EU e-Justice registers search, Corporations Canada, Azerbaijan taxpayer search on taxes.gov.az (unverified links are marked verify);
+  - plain trafficking warning and the national anti-trafficking hotline, only when its official page is opened (known: Azerbaijan 152, Nigeria NAPTIP);
+  - job verdict rule: `Likely legit` only with the employer's register entry opened (UK: also the sponsor register); passport/ID scan before an interview = data harvesting.
+- Optional `Employer check:` line in the VERDICT block (job mode only; then at most 4 red-flag bullets so the block stays ≤ 10 lines).
+- Job-mode footer: Job & Application Copilot (optional, on Agensi), no outside link.
+- Evals JO-1 to JO-4, with blind-run results in `tests/blind-run-2026-11-11-job-offer.md`.
+
 ## [1.3.1] - 2026-11-11
 
 Daily review fixes from a blind B1-phone user test.
