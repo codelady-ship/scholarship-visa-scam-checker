@@ -3,6 +3,21 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.1] - 2026-11-11
+
+Daily review fixes from a blind B1-phone user test.
+
+### Changed
+- Golden rule 1: a search snippet may support a red flag when marked "search snippet says" (never `Likely legit`); a clear lookalike domain counts even when the embassy page will not load.
+- Domain age: a failed lookup (error, blocked, empty) gives `not checked (lookup failed)` plus the 2-step check.
+- Job abroad: a website and a contract PDF prove nothing; check the official business register and call the number listed there; plain-words trafficking warning.
+- README version badge corrected (was 1.1.0).
+- Phone mode: VERDICT block at most 10 short lines; plain words instead of "registrable domain", "chargeback", "2FA"; footer translated into the user's language.
+
+### Added
+- Workflow step 8: when the link, sender, payment method or "did you apply?" is missing, give the verdict and end with one short question.
+- Evals DR-1 to DR-3.
+
 ## [1.3.0] - 2026-11-10
 
 ### Added

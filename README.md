@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-D97757.svg)](SKILL.md)
-[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.3.1-blue.svg)](CHANGELOG.md)
 [![Price: Free](https://img.shields.io/badge/price-free-brightgreen.svg)](#pricing)
 
 > **Compatibility:** works best with web search on, so the skill can open the official programme, embassy or visa-centre page. Without browsing it still lists red flags, but it never gives a `Likely legit` verdict.
